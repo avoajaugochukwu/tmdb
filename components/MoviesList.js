@@ -14,13 +14,12 @@ const MoviesList = ({ movies }) => {
   // setCookie('highlightedMovies', '', { path: '/' });
 
   useEffect(() => {
-    (async () => {
-      if (ascDesc == true) {
+    
+    if (ascDesc == true) {
         setMoviesList(movies.sort((a,b) => a.title > b.title ? 1 : -1))
     } else {
         setMoviesList(movies.sort((a,b) => b.title > a.title ? 1 : -1))
     }
-    })()
 
   }, [ascDesc, movies])
 
