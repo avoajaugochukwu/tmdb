@@ -1,6 +1,6 @@
 import React from 'react'
 
-import MainBody  from '../components/MainBody'
+import MainBody  from '../components/MoviesList'
 
 import { API_KEY } from '../utils/keys'
 
@@ -25,7 +25,7 @@ export default function Home({ movies }) {
 
 
 export const getServerSideProps = async ({query}) => {
-  const res = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en-US&page=50`)
+  const res = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`)
   const movies = await res.json()
   
   return {
