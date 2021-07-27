@@ -1,6 +1,8 @@
+import { useEffect  } from 'react'
 import { API_KEY } from '../../utils/keys'
 
 import MoviesList from '../../components/MoviesList'
+
 
 import Link from 'next/link'
 
@@ -8,7 +10,11 @@ import Link from 'next/link'
 export default function Movies({ movies, page_num }) {
 
   const { results } = movies
-  console.log(results)
+  useEffect(function() {
+    console.log(window.localStorage.getItem('userInfo'))
+    console.log(window.localStorage.getItem('userInf'))
+    console.log(JSON.parse(window.localStorage.getItem('userInfo')))
+},[]);
 
   const links = []
   for (var i = 1; i <= 25; i++) {
