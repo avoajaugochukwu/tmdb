@@ -1,8 +1,6 @@
-import { useEffect  } from 'react'
 import { API_KEY } from '../../utils/keys'
 
 import MoviesList from '../../components/movies/MoviesList'
-
 
 import Link from 'next/link'
 

@@ -1,4 +1,5 @@
 import { useEffect, useState, useContext } from 'react'
+import PropTypes from "prop-types";
 
 import { MovieContext } from '../../contexts/MovieContext'
 import MoviesItem from './MovieItem'
@@ -58,6 +59,12 @@ const MoviesList = ({ movies }) => {
     </div>
   )
 }
+
+
+MoviesList.propTypes = {
+  movies: PropTypes.array
+}
+
 
 export default MoviesList
 

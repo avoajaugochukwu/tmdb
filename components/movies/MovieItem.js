@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
+import PropTypes from "prop-types";
 
 import { MovieContext } from '../../contexts/MovieContext'
 import Image from 'next/image'
@@ -74,6 +75,12 @@ const MovieItem = ({ movie, addToHighlightList, removeFromHighlightList }) => {
       </div>
     </div>
   )
+}
+
+MovieItem.propTypes = {
+  movie: PropTypes.object, 
+  addToHighlightList: PropTypes.func,
+  removeFromHighlightList: PropTypes.func
 }
 
 export default MovieItem
