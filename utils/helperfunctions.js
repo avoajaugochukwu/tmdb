@@ -10,4 +10,13 @@ export const isMovieIdsInCookie = (movieId, movieIdsList) => {
 }
 
 
+export const isMovieIdsInArray = (movieId, movieIdsList) => {
+  if (movieIdsList.includes(movieId)) {
+    return true
+  }
+  return false
+}
+
+
+
 export const convertStringToArray = (stringToConvert) => stringToConvert.split(' ').map(x => parseInt(x))

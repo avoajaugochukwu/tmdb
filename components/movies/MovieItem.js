@@ -1,31 +1,32 @@
+import React, { useState, useEffect, useContext } from 'react'
 
-import React, { useState, useEffect } from 'react'
-
-import { convertStringToArray } from '../utils/helperfunctions'
-
+import { MovieContext } from '../../contexts/MovieContext'
 import Image from 'next/image'
 
-import ReleaseDate from './ReleaseDate'
+import ReleaseDate from '../ReleaseDate'
 
-const MovieItem = ({ movie, addToCookie, RemoveFromCookie, highlightedMovies }) => {
+const MovieItem = ({ movie, addToHighlightList, removeFromHighlightList }) => {
 
-  const [lightBackground, setLightBackground] = useState(true)
+  const { highlightedMovies } = useContext(MovieContext)
+
+  const [lightBackground, setLightBackground] = useState(true) // for toggling record background before and after it is highlighted
 
   useEffect(() => {
-    const highlightedMoviesArray = convertStringToArray(highlightedMovies)
-    if (highlightedMoviesArray.includes(movie.id)) {
-      highlightMovie()
+    // check if movie is in localStorage so that it will be highlighted
+    if (highlightedMovies.includes(movie.id)) {
+      highlight()
     }
   });
 
-  const highlightMovie = () => {
+
+  const highlight = () => {
     setLightBackground(false)
-    addToCookie(movie.id)
+    addToHighlightList(movie.id)
   }
 
-  const RemoveMovieHighlight = () => {
+  const removeHighlight = () => {
     setLightBackground(true)
-    RemoveFromCookie(movie.id)
+    removeFromHighlightList(movie.id)
   }
 
   return (
@@ -60,11 +61,11 @@ const MovieItem = ({ movie, addToCookie, RemoveFromCookie, highlightedMovies }) 
         <div className="flex items-center flex-auto absolute bottom-16 md:right-14 right-6">
           {
             lightBackground ?
-              <span className="text-lg cursor-pointer" onClick={highlightMovie}>
+              <span className="text-lg cursor-pointer" onClick={highlight}>
                 ⭐
               </span>
               :
-              <span className="text-lg cursor-pointer" onClick={RemoveMovieHighlight}>
+              <span className="text-lg cursor-pointer" onClick={removeHighlight}>
                 💡
               </span>
           }
