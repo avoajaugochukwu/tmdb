@@ -9,7 +9,9 @@ import { API_KEY } from '../utils/keys'
 // Use GraphQL - themoviedb doesn't support graphQL
 // Write tests
 // Use React Hooks
-
+// add prototypes
+// Use try catch
+// Set expiry of Cookie
 export default function Home({ movies }) {
   
   const { results } = movies

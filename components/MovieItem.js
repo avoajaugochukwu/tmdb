@@ -1,14 +1,37 @@
-import Image from 'next/image'
-import ReleaseDate from './ReleaseDate'
-ReleaseDate
 
-const MovieItem = ({ movie }) => {
+import React, { useState, useEffect } from 'react'
+
+import { convertStringToArray } from '../utils/helperfunctions'
+
+import Image from 'next/image'
+
+import ReleaseDate from './ReleaseDate'
+
+const MovieItem = ({ movie, addToCookie, RemoveFromCookie, highlightedMovies }) => {
+
+  const [lightBackground, setLightBackground] = useState(true)
+
+  useEffect(() => {
+    const highlightedMoviesArray = convertStringToArray(highlightedMovies)
+    if (highlightedMoviesArray.includes(movie.id)) {
+      highlightMovie()
+    }
+  });
+
+  const highlightMovie = () => {
+    setLightBackground(false)
+    addToCookie(movie.id)
+  }
+
+  const RemoveMovieHighlight = () => {
+    setLightBackground(true)
+    RemoveFromCookie(movie.id)
+  }
+
   return (
-    <div key={movie.id}>
+    <div className={lightBackground ? 'bg-white hover:bg-gray-100 my-2' : 'bg-gray-500 hover:bg-gray-500 my-2'}>
       <div
-        className="flex w-full max-w-full mx-auto overflow-hidden 
-                            hover:bg-gray-100
-                             shadow-md px-4  py-1">
+        className="flex w-full max-w-full mx-auto overflow-hidden shadow-md px-4  py-1">
         <Image
           className=" w-32 h-32 rounded pt-5 md:pt-1"
           alt="movie image"
@@ -34,9 +57,17 @@ const MovieItem = ({ movie }) => {
         </div>
 
         <div className="flex items-center ml-60">
-          <span className="text-lg cursor-pointer">
-            ⭐
-          </span>
+          {
+            lightBackground ?
+              <span className="text-lg cursor-pointer" onClick={highlightMovie}>
+                ⭐
+              </span>
+              :
+              <span className="text-lg cursor-pointer" onClick={RemoveMovieHighlight}>
+                💡
+              </span>
+          }
+
         </div>
       </div>
     </div>
