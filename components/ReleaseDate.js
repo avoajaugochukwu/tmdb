@@ -7,7 +7,12 @@ const ReleaseDate = ( { date }) => {
     const date_string = moment(date).format('YYYY')
     return (
         <div>
-          <span className="text-sm"> Release Year: { date_string }</span>
+          <span className="text-sm"> 
+            Release Year: 
+            <span className="font-semibold">
+              &nbsp; { date_string }
+            </span>
+          </span>
         </div>
     )
 }

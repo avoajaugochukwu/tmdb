@@ -1,20 +1,23 @@
 import Head from 'next/head'
 
+import Navbar from './Navbar'
 
 const Layout = ({ children }) => {
   return (
-    <div className="container px-80 mx-auto my-24">
+    <div>
       <Head>
         <title>TMDB APP</title>
         <meta name="description" content="TMDB APP" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        { children }
+      <Navbar />
+
+      <main className="container md:px-80 px-50 mx-auto md:my-10 my-6">
+        {children}
       </main>
 
-      <footer className="text">
+      <footer className=" text-center mb-2">
         Built with ❤️
       </footer>
 

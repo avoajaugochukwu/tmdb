@@ -1,7 +1,6 @@
 import { CookiesProvider } from 'react-cookie';
 
-import Layout from '../components/Layouts'
-
+import Layout from '../components/layout/Layout'
 
 import '../styles/globals.css'
 import 'tailwindcss/tailwind.css'

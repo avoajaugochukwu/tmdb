@@ -1,4 +1,4 @@
-export const movieIdsInCookie = (movieId, movieIdsList) => {
+export const isMovieIdsInCookie = (movieId, movieIdsList) => {
 
   const newMovieList = movieIdsList.split(' ').map(x => parseInt(x))
 
