@@ -8,6 +8,7 @@ import Link from 'next/link'
 export default function Movies({ movies, page_num }) {
 
   const { results } = movies
+  console.log(results)
 
   const links = []
   for (var i = 1; i <= 25; i++) {
