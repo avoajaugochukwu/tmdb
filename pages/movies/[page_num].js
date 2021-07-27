@@ -1,15 +1,14 @@
 import { API_KEY } from '../../utils/keys'
 
-import MoviesList from '../../components/MoviesList'
+import MoviesList from '../../components/movies/MoviesList'
 
 import Link from 'next/link'
-
 
 export default function Movies({ movies, page_num }) {
 
   const { results } = movies
-  console.log(results)
 
+  // Create links for crude pagination
   const links = []
   for (var i = 1; i <= 25; i++) {
     links.push(
@@ -20,11 +19,8 @@ export default function Movies({ movies, page_num }) {
       </Link>)
   }
 
- 
-
   return (
     <>
-      
       <div className="flex flex-wrap">
         {
           links

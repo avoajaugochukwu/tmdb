@@ -1,6 +1,6 @@
-import { CookiesProvider } from 'react-cookie';
-
 import Layout from '../components/layout/Layout'
+
+import MovieContextProvider from '../contexts/MovieContext';
 
 import '../styles/globals.css'
 import 'tailwindcss/tailwind.css'
@@ -8,12 +8,14 @@ import 'tailwindcss/tailwind.css'
 function MyApp({ Component, pageProps }) {
 
   return (
-    <CookiesProvider>
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
-    </CookiesProvider>
+    <MovieContextProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </MovieContextProvider>
+
   )
 }
 
 export default MyApp
+

@@ -2,7 +2,9 @@
   "name": "tmdb",
   "version": "0.1.0",
   "private": true,
-  "cacheDirectories": [".next/cache"],
+  "cacheDirectories": [
+    ".next/cache"
+  ],
   "engines": {
     "node": "14.x",
     "npm": "7.x"
@@ -18,7 +20,6 @@
     "moment": "^2.29.1",
     "next": "11.0.1",
     "react": "17.0.2",
-    "react-cookie": "^4.0.3",
     "react-dom": "17.0.2",
     "react-paginate": "^7.1.3"
   },
